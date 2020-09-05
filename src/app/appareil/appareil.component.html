@@ -1,0 +1,15 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success' : getStatus() === 'allumé',
+                'list-group-item-danger' : getStatus() === 'éteint'}">
+    <h4 [ngStyle]="{'color': getColor()}">Appareil : {{ appareilName }} -- Statut : {{ getStatus() }}</h4>
+    <a class="btn btn-primary"
+       [routerLink]="[id]">Détail</a>
+     &nbsp;
+    <button class="btn btn-success"
+            (click)="onSwitchOn()"
+            [disabled]="getStatus() === 'allumé'">Allumer</button>
+     &nbsp;
+     <button class="btn btn-danger"
+            (click)="onSwitchOff()"
+            [disabled]="getStatus() === 'éteint'">Eteindre</button>  
+</li>
